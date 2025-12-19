@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salone | Products We Use</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        h2 { color: #b88a44; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+        }
+        .price { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h2>💄 Salone – Products We Use</h2>
+<p>Beauty & makeup products fetched using REST API</p>
+
+<div class="grid">
+    {% for p in products %}
+    <div class="card">
+        {% if p.image_link %}
+        <img src="{{ p.image_link }}" alt="{{ p.name }}">
+        {% endif %}
+        <h4>{{ p.name }}</h4>
+        <p>Brand: {{ p.brand|default:"N/A" }}</p>
+        <p class="price">
+            ₹ {{ p.price|default:"0" }} {{ p.price_sign|default:"" }}
+        </p>
+        <p>{{ p.product_type }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

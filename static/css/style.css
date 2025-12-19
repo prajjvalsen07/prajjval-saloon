@@ -1,0 +1,166 @@
+/********** Template CSS **********/
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.back-to-top {
+    position: fixed !important;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+/*** Fonts ***/
+.font-work-sans {
+  font-family: "Work Sans", sans-serif;
+}
+
+.font-playfair-display {
+  font-family: "Playfair Display", serif;
+}
+
+.font-dancing-script {
+    font-family: "Dancing Script", cursive;
+}
+
+/*** Button ***/
+.btn {
+    position: relative;
+    transition: .5s;
+}
+
+.btn-square { width: 38px; height: 38px; }
+.btn-sm-square { width: 32px; height: 32px; }
+.btn-lg-square { width: 48px; height: 48px; }
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*** Navbar ***/
+.sticky-top {
+    top: -150px;
+    transition: .5s;
+}
+
+.navbar .navbar-nav .nav-link {
+    margin: 0 12px;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--bs-dark);
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+
+/*** Hero Header ***/
+.hero-header {
+    background: url(../img/hero-bg.jpg) top left no-repeat;
+    background-size: cover;
+}
+
+/*** Team ***/
+.team {
+    position: relative;
+    overflow: hidden;   /* ✅ overflow fix */
+}
+
+.team::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200px;
+    top: 50%;
+    left: -50%;
+    transform: translateY(-50%);
+    background: var(--bs-primary);
+}
+
+/*** Testimonial ***/
+.testimonial-carousel {
+    overflow: hidden;    /* ✅ carousel jump fix */
+}
+
+.testimonial-carousel .owl-item {
+    position: relative;
+}
+
+.testimonial-carousel .owl-item::before {
+    content: "\f10d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .08;
+}
+
+.testimonial-carousel .owl-item img {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-carousel .owl-item.center .bg-light {
+    background: var(--bs-primary) !important;
+}
+
+.testimonial-carousel .owl-item.center .bg-light * {
+    color: var(--bs-dark) !important;
+}
+
+.testimonial-carousel .owl-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+/*** Footer ***/
+.footer {
+    position: static !important;   /* ✅ BIG FIX */
+    margin-top: 0 !important;      /* ✅ BIG FIX */
+}
+@media (min-width: 992px) {
+    .footer::after {
+        display: none;
+    }
+}
+
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: rgba(255, 255, 255, .5);
+    transition: .3s;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--bs-primary);
+    letter-spacing: 1px;
+}
